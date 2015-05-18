@@ -1,19 +1,4 @@
 /* Put your css in here */
-
-.row1 .thumbnail {
-    border:0;
-    border-radius:0;
-}
-
-
-.btn:active  {
-  outline:0;
-  color: #fff;
-  background-color: #428bca;
-  border-color: #357ebd;
-}
-
-
 .blur {
     -webkit-filter: blur(3px) grayscale(25%);
 }
