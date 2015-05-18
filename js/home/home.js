@@ -6,25 +6,25 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     {"name":"paul",
      "piecenumber":"CK10M100H001",
      "seq":45,
-     "image":"http://dummyimage.com/250x300/0008ff/ffffff.png",
+     "image":"https://placeimg.com/250/300/any/1",
      "redobgr": 0
     },
-    {"name":"Fred",
+    {"name":"paul",
      "piecenumber":"CK10M100H001",
-     "seq": 472,
-     "image":"http://dummyimage.com/250x300/00ffff/000000.png",
+     "seq":47,
+     "image":"https://placeimg.com/250/300/any/2",
      "redobgr": 0
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H002",
      "seq": 3,
-     "image":"http://dummyimage.com/250x300/ff08f0/ffffff.png",
+     "image":"https://placeimg.com/250/300/any/3",
      "redobgr": 0
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq": 55,
-     "image":"http://dummyimage.com/250x300/fffff0/000000.png",
+     "image":"https://placeimg.com/250/300/any/4",
      "redobgr": 0 
     },
     {"name":"Fred e",
@@ -40,6 +40,11 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     $log.info(JSON.stringify($scope.subjects));  
   };
   
+
+  $scope.refresh = function (){
+    location.reload();
+  };
+   
   $scope.openJob = function () {
     var modalInstance = $modal.open({
       animation: $scope.animationsEnabled,
@@ -55,6 +60,7 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     modalInstance.result.then(function (jobnumber) {
       $log.info('Jobnumber is: ', jobnumber);
       $scope.jobnumber = jobnumber;
+      location.reload();
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
