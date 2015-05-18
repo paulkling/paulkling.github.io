@@ -38,13 +38,16 @@
   </div><!-- /.container-fluid -->
 </nav>
   
-<div>
-  <P>Job number is: {{jobnumber}}</P>
+<div> 
+  <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+    Job number is: {{jobnumber}}
   <button class="btn" data-ng-click="logSubjects();">Log Subjects</button>
+  <button class="btn" data-ng-click="addSubjects();">Add Subjects</button>
 </div>
 
 
-<div ng-repeat="subject in subjects | orderBy:['piecenumber','seq']" class="col-sm-3 col-md-3">
+
+<div ng-repeat="subject in subjects | orderBy:['piecenumber','seq'] | offset: currentPage*itemsPerPage-itemsPerPage | limitTo: itemsPerPage " class="col-sm-3 col-md-3">
   <div bgrimage></div>
 </div>
 

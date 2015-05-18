@@ -1,17 +1,17 @@
-angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal, $log) {
+angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal, $log, hotkeys) {
 
   $scope.jobnumber;
   	
   $scope.subjects = [
-    {"name":"paul",
+    {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
-     "seq":45,
+     "seq":1,
      "image":"https://placeimg.com/250/300/any/1",
      "redobgr": 0
     },
-    {"name":"paul",
+    {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
-     "seq":47,
+     "seq":2,
      "image":"https://placeimg.com/250/300/any/2",
      "redobgr": 0
     },
@@ -23,18 +23,55 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
-     "seq": 55,
+     "seq": 4,
      "image":"https://placeimg.com/250/300/any/4",
      "redobgr": 0 
     },
-    {"name":"Fred e",
+    {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
-     "seq": 57,
+     "seq": 5,
      "image":"http://dummyimage.com/250x300/ffff00/000000.png",
      "redobgr": 0 
-    }
+    },
+    {"name":"Fred was here",
+     "piecenumber":"CK10M100H001",
+     "seq": 6,
+     "image":"https://placeimg.com/250/300/any/6",
+     "redobgr": 0 
+    },
+    {"name":"Fred was here",
+     "piecenumber":"CK10M100H001",
+     "seq": 7,
+     "image":"https://placeimg.com/250/300/any/7",
+     "redobgr": 0 
+    },
+    {"name":"Fred was here",
+     "piecenumber":"CK10M100H001",
+     "seq": 8,
+     "image":"https://placeimg.com/250/300/any/8",
+     "redobgr": 0 
+    },
+    {"name":"Fred was here",
+     "piecenumber":"CK10M100H001",
+     "seq": 9,
+     "image":"https://placeimg.com/250/300/any/9",
+     "redobgr": 0 
+    } 
   ];
   
+  
+  $scope.currentPage = 1;
+  $scope.itemsPerPage = 8;
+  $scope.maxSize = 6;
+  $scope.totalItems = $scope.subjects.length + $scope.itemsPerPage;   
+  
+  
+  $scope.addSubjects = function (){
+    for (i = 0; i < 25; i++) { 
+      $scope.subjects.push({"name":"Fred was here","piecenumber":"CK10M100H003","seq":$scope.subjects.length+1,"image":"https://placeimg.com/250/300/any/"+$scope.subjects.length,"redobgr":0})
+    }
+    $scope.totalItems = $scope.subjects.length + $scope.itemsPerPage; 
+  };
   
   $scope.logSubjects = function () {
     $log.info(JSON.stringify($scope.subjects));  
@@ -47,7 +84,7 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
    
   $scope.openJob = function () {
     var modalInstance = $modal.open({
-      animation: $scope.animationsEnabled,
+      animation: true,
       templateUrl: 'js/newjob/newjob.html',
       controller: 'NewJobCtrl',
       resolve: {
@@ -64,5 +101,27 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
+  
+  hotkeys.bindTo($scope)
+    .add({
+      combo: 'left',
+      description: 'Back one page',
+      callback: function () {
+        $scope.currentPage = $scope.currentPage-1;
+        if ($scope.currentPage<=1)
+          $scope.currentPage=1;
+       }
+    })
+    // you can chain these methods for ease of use:
+    .add ({
+      combo: 'right',
+      description: 'Forward one page',
+      callback: function () {
+        $scope.currentPage = $scope.currentPage+1;
+        if($scope.currentPage>= $scope.totalItems/$scope.itemsPerPage)
+          $scope.currentPage = $scope.currentPage-1;
+        }
+    });
+ 
   
 });
