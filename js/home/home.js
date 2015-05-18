@@ -6,25 +6,25 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq":1,
-     "image":"https://placeimg.com/250/300/any/1",
+     "image":"http://placeimg.com/250/300/any/1",
      "redobgr": 0
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq":2,
-     "image":"https://placeimg.com/250/300/any/2",
+     "image":"http://placeimg.com/250/300/any/2",
      "redobgr": 0
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H002",
      "seq": 3,
-     "image":"https://placeimg.com/250/300/any/3",
+     "image":"http://placeimg.com/250/300/any/3",
      "redobgr": 0
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq": 4,
-     "image":"https://placeimg.com/250/300/any/4",
+     "image":"http://placeimg.com/250/300/any/4",
      "redobgr": 0 
     },
     {"name":"Fred was here",
@@ -36,25 +36,25 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq": 6,
-     "image":"https://placeimg.com/250/300/any/6",
+     "image":"http://placeimg.com/250/300/any/6",
      "redobgr": 0 
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq": 7,
-     "image":"https://placeimg.com/250/300/any/7",
+     "image":"http://placeimg.com/250/300/any/7",
      "redobgr": 0 
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq": 8,
-     "image":"https://placeimg.com/250/300/any/8",
+     "image":"http://placeimg.com/250/300/any/8",
      "redobgr": 0 
     },
     {"name":"Fred was here",
      "piecenumber":"CK10M100H001",
      "seq": 9,
-     "image":"https://placeimg.com/250/300/any/9",
+     "image":"http://placeimg.com/250/300/any/9",
      "redobgr": 0 
     } 
   ];
@@ -68,7 +68,7 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
   
   $scope.addSubjects = function (){
     for (i = 0; i < 25; i++) { 
-      $scope.subjects.push({"name":"Fred was here","piecenumber":"CK10M100H003","seq":$scope.subjects.length+1,"image":"https://placeimg.com/250/300/any/"+$scope.subjects.length,"redobgr":0})
+      $scope.subjects.push({"name":"Fred was here","piecenumber":"CK10M100H003","seq":$scope.subjects.length+1,"image":"http://dummyimage.com/250x300/ffff00.png/000000&text=image "+($scope.subjects.length+1),"redobgr":0})
     }
     $scope.totalItems = $scope.subjects.length + $scope.itemsPerPage; 
   };

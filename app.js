@@ -11,6 +11,8 @@ var app = angular
             $locationProvider.html5Mode(true);
 		});
 		
+
+
 app.directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -18,7 +20,6 @@ app.directive('ngEnter', function () {
                 scope.$apply(function (){
                     scope.$eval(attrs.ngEnter);
                 });
-
                 event.preventDefault();
             }
         });
