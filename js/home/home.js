@@ -60,7 +60,6 @@ angular.module('home', []).controller('homeCtrl', function($scope, $http, $modal
     modalInstance.result.then(function (jobnumber) {
       $log.info('Jobnumber is: ', jobnumber);
       $scope.jobnumber = jobnumber;
-      location.reload();
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
